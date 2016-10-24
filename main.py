@@ -1,27 +1,27 @@
 import argparse
-def soll():
-  print "This is the soll!"
+def excel():
+  print "This is the excel!"
 
 def env():
-  print "This is the env!"
+  print "This is the database!"
 
 def compare():
-  print "This is the compare!"
+  print "This is the comparison!"
 
 def main():
   descStr = """
-  This program compares the privileges between SOLL and ENV.
+  This program compares the excel file with the database
   """
   parser = argparse.ArgumentParser(description=descStr)
 
-  parser.add_argument('--soll', action='store_true', required=False)
-
+  parser.add_argument('--excel', action='store_true', required=False)
   parser.add_argument('--env', action='store_true', required=False)
   parser.add_argument('--compare', action='store_true', required=True)
+
   args = parser.parse_args()
 
-  if args.soll:
-    soll()
+  if args.excel:
+    excel()
   if args.env:
     env()
   if args.compare:
