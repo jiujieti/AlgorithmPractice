@@ -1,44 +1,44 @@
 from random import randint
 
-def build_max_heap_property(A, heapsize, i):
+def build_max_heap_property(li, heapsize, i):
   largest = i
   left = 2*i + 1
   right = 2*i + 2
-  if left < heapsize and A[left] > A[largest]:
+  if left < heapsize and li[left] > li[largest]:
     largest = left
-  if right < heapsize and A[right] > A[largest]:
+  if right < heapsize and li[right] > li[largest]:
     largest = right
   if largest != i:
-    A[i], A[largest] = A[largest], A[i]
-    build_max_heap_property(A, heapsize, largest)  
+    li[i], li[largest] = li[largest], li[i]
+    build_max_heap_property(li, heapsize, largest)  
 
-def build_max_heap(A):
-  for i in range(len(A) // 2, -1, -1):
-    build_max_heap_property(A, len(A), i)
+def build_max_heap(li):
+  for i in range(len(li) // 2, -1, -1):
+    build_max_heap_property(li, len(li), i)
     
-def heapsort(A):
-  build_max_heap(A)
-  heapsize = len(A)
-  for i in range(len(A)-1, 0, -1):
-    A[i], A[0] = A[0], A[i]
+def heapsort(li):
+  build_max_heap(li)
+  heapsize = len(li)
+  for i in range(len(li)-1, 0, -1):
+    li[i], li[0] = li[0], li[i]
     heapsize -= 1
-    build_max_heap_property(A, heapsize, 0)
-  return A
+    build_max_heap_property(li, heapsize, 0)
+  return li
 
 tests = []
 for i in range(0, 5):
-  A = [randint(-100, 100) for i in range(randint(0, 1000))]
-  tests.append(A)
+  li = [randint(-100, 100) for i in range(randint(0, 1000))]
+  tests.append(li)
 tests.append([])
 
-for A in tests:
-  A_bak = A.copy()
-  A_heapsorted = heapsort(A)
-  if A_heapsorted == sorted(A_bak):
-    print ("The original list is {0}".format(str(A_bak)))
-    print ("The heap-sorted list is {0}".format(str(A_heapsorted)))
+for li in tests:
+  li_bak = li.copy()
+  li_heapsorted = heapsort(li)
+  if li_heapsorted == sorted(li_bak):
+    print ("The original list is {0}".format(str(li_bak)))
+    print ("The heap-sorted list is {0}".format(str(li_heapsorted)))
     print ("The heapsort algorithm is correct!")
   else:
-    print ("The original list is {0}".format(str(A_bak)))
-    print ("The heap-sorted list is {0}".format(str(A_heapsorted)))
+    print ("The original list is {0}".format(str(li_bak)))
+    print ("The heap-sorted list is {0}".format(str(li_heapsorted)))
     print ("The heapsort algorithm is wrong.")
