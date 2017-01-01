@@ -5,4 +5,6 @@
 2. Divide and conquer approach: O(n\*lg(n))
 3. Linear-time approach: O(n)
 
-All implementations could be found [here](https://github.com/jiujieti/AlgorithmPractice/tree/master/findMaximumArray).
+##Sort
+###Heapsort
+Heapsort: O(n\*lg(n))
