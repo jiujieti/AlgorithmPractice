@@ -1,5 +1,4 @@
-import random
-import sys
+from random import randint
 
 def build_max_heap_property(A, heapsize, i):
   largest = i
@@ -26,16 +25,20 @@ def heapsort(A):
     build_max_heap_property(A, heapsize, 0)
   return A
 
+tests = []
 for i in range(0, 5):
-  max_num = random.randint(0, 100000)
-  num = random.randint(0, 10000)
-  A = random.sample(range(max_num), num)
-  A_sorted = heapsort(A)
-  if A_sorted == sorted(A):
-    print ("The original list is {0}".format(str(A)))
-    print ("The heap-sorted list is {0}".format(str(A_sorted)))
+  A = [randint(-100, 100) for i in range(randint(0, 1000))]
+  tests.append(A)
+tests.append([])
+
+for A in tests:
+  A_bak = A.copy()
+  A_heapsorted = heapsort(A)
+  if A_heapsorted == sorted(A_bak):
+    print ("The original list is {0}".format(str(A_bak)))
+    print ("The heap-sorted list is {0}".format(str(A_heapsorted)))
     print ("The heapsort algorithm is correct!")
   else:
-    print ("The original list is {0}".format(str(A)))
-    print ("The heap-sorted list is {0}".format(str(A_sorted)))
+    print ("The original list is {0}".format(str(A_bak)))
+    print ("The heap-sorted list is {0}".format(str(A_heapsorted)))
     print ("The heapsort algorithm is wrong.")
