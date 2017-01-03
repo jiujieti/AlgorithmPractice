@@ -7,4 +7,11 @@
 
 ##Sort
 ###Heapsort
-Heapsort: O(n\*lg(n))
+1. Worst case: O(n\*lg(n))
+2. Average case: O(n\*lg(n))
+3. Best case: O(n\*lg(n))
+
+###Quicksort
+1. Worst case: O(n^2)
+2. Average case: O(n\*lg(n))
+3. Best case: O(n\*lg(n))

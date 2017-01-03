@@ -2,13 +2,14 @@ from random import randint
 
 def partition(li, p, r):
   pivot = li[r]
-  i = p - 1
+  i = p
   for j in range(p, r):
     if li[j] <= pivot:
-      i += 1
       li[i], li[j] = li[j], li[i]
-  li[i+1], li[r] = li[r], li[i+1]
-  return i+1
+      i += 1
+  li[i], li[r] = li[r], li[i]
+  return i
+ 
 
 def quicksort(li, p, r):
   if p < r:
@@ -25,7 +26,7 @@ tests.append([])
 
 for li in tests:
   li_bak = li.copy()
-  if quicksort(li, 0, len(li)-1) == sorted(li_bak):
+  if sorted(li_bak) == quicksort(li, 0, len(li)-1):
     print ("The original array is {0}".format(str(li_bak)))
     print ("The quick-sorted array is {0}".format(str(li)))
     print ("The quicksort algorithm is correct!")
@@ -33,3 +34,4 @@ for li in tests:
     print ("The original array is {0}".format(str(li_bak)))
     print ("The quick-sorted array is {0}".format(str(li)))
     print ("The quicksort algorithm is wrong!")
+    
