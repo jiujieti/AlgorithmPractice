@@ -8,7 +8,9 @@ In this algorithm, we regard a heap as an almost complete binary tree with certa
 When we talk about sort algorithms, we usually regard an array of elements as input. And each element has a value as well as an index to indicate its position in an array. But how can we make use of the max-heap property of a heap to build our sort algorithm? The heapsort algorithm utilizes the max-heap property wisely: the algorithm will first build a max heap where all of the nodes satisfy the max-heap property, from the input array. Then it extracts the root element, which obviously has the largest value among all elements in this array, switch this one with the element at the end of the (sorted) output array. Then this algorithm will apply some operations to recover the max-heap property, making the root element largest again. Note that before we recover the heap to a max heap, we need to decrement the heapsize by one in order to keep the last, well-sorted element untouched. After that, we exchange this element with the second last element in the output array, decrement the heapsize by one and then recover the max heap property. During each iteration, we keep applying these oeprations. The iteration will be terminated until the heapsize bocomes one. We will get a nicely sorted output array.
 
 But there are still two questions remaining here: 
+
 1. How can we recover the max-heap property?
+
 2. How to build a max heap from an array as the initial max heap of this heapsort algorithm?
 
 Actually, these two questions are quite relevant. Let us start with building a heap with no property from an array. We could put all elements layer by layer, from left to right into a binary tree. Then? How can we get a max heap?
