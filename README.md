@@ -15,3 +15,16 @@
 1. Worst case: O(n^2)
 2. Average case: O(n\*lg(n))
 3. Best case: O(n\*lg(n))
+
+##Data Structure
+###Stack
+Basic operations:
+isEmpty
+pop
+push
+
+###Queue
+Basic operations:
+isEmpty
+enqueue
+dequeue
