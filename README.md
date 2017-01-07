@@ -19,12 +19,12 @@
 ##Data Structure
 ###Stack
 Basic operations:
-isEmpty
-pop
-push
+1. isEmpty
+2. pop
+3. push
 
 ###Queue
 Basic operations:
-isEmpty
-enqueue
-dequeue
+1. isEmpty
+2. enqueue
+3. dequeue
