@@ -18,13 +18,11 @@
 
 ##Data Structure
 ###Stack
-Basic operations:
 1. isEmpty
 2. pop
 3. push
 
 ###Queue
-Basic operations:
 1. isEmpty
 2. enqueue
 3. dequeue
