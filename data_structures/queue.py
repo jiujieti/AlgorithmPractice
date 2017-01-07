@@ -1,7 +1,7 @@
 class DequeueError(Exception):
   pass
 
-class queue():
+class Queue():
   
   queue = []
 
@@ -19,6 +19,6 @@ class queue():
       raise DequeueError("This queue is empty!")
     else:
       a = self.queue[0]
-      self.queue.remove(a)
+      self.queue = self.queue[1:]
       return a
 

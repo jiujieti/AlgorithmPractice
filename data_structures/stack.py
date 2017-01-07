@@ -1,7 +1,7 @@
 class StackPopError(Exception):
   pass
 
-class stack():
+class Stack():
   
   stack = []
 
@@ -16,7 +16,7 @@ class stack():
       raise StackPopError("This stack is empty!")
     else:
       ele = self.stack[len(self.stack)-1]
-      self.stack = self.stack[0:len(self.stack)-1]
+      self.stack = self.stack[:-1]
       return ele
 
   def push(self, a):
