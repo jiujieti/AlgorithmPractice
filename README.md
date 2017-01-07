@@ -16,7 +16,7 @@
 2. Average case: O(n\*lg(n))
 3. Best case: O(n\*lg(n))
 
-##Data Structure
+##Data Structures
 ###Stack
 1. isEmpty
 2. pop
