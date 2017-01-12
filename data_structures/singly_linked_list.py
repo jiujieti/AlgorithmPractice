@@ -24,7 +24,7 @@ class SinglyLinkedList:
     
     # First consider if the new node could be inserted as the list head.
     q = Node(val)
-    if p == None or val < p.value:
+    if self.head == None or val < self.head.value:
       q.succ = self.head
       self.head = q
       return self.head
