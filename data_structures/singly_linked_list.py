@@ -1,18 +1,12 @@
 class Node:
-  
-  value = None
-  succ = None
-
-  def __init__(self, val):
+  def __init__(self, val, succ=None):
     self.value = val
+    self.succ = succ
 
 class SinglyLinkedListError(Exception):
   pass
 
 class SinglyLinkedList:
-
-  head = None
-
   def __init__(self, li):
     if li:
       self.head = Node(li[0])
@@ -23,26 +17,24 @@ class SinglyLinkedList:
         p = q
       p.succ = None
     else:
-      self.head = Node(None)
+      self.head = None
 
   def insert_ele(self, val):
-    #insert a element from a sorted singly linked list
-    #first consider if the new node could be inserted as the list head 
-    p = self.head
+    """Insert a element, assuming that this is a sorted singly linked list."""
+    
+    # First consider if the new node could be inserted as the list head.
     q = Node(val)
-    if p.value == None or val < p.value:
-      q.succ = self.head.succ
+    if self.head == None or val < self.head.value:
+      q.succ = self.head
       self.head = q
-    else:
-      #scan through the list until the next value is None or the next value is larger or equal to the one to be inserted
-      while p.succ != None and p.succ.value < val:
-        p = p.succ
-      if p.succ == None:
-        p.succ = q
-        q.succ = None
-      else:
-        q.succ = p.succ
-        p.succ = q
+      return self.head
+
+    # Walk through the list until the next value is None or the next value is larger or equal to the one to be inserted
+    p = self.head
+    while p.succ != None and p.succ.value < val:
+      p = p.succ
+    q.succ = p.succ
+    p.succ = q
     return self.head
 
   def delete_ele(self, val):
@@ -51,11 +43,11 @@ class SinglyLinkedList:
       raise SinglyLinkedListError("Empty List! No elements found.")   
     while p.value == val:
       p = p.succ
-    self.head = p 
+    self.head = p
     q = p
     p = p.succ
     while p is not None:
-      while p.value == val and p is not None:
+      while p is not None and p.value == val:
         p = p.succ
       q.succ = p
       q = p 
@@ -69,4 +61,3 @@ class SinglyLinkedList:
       li.append(p.value)
       p = p.succ
     return li
-
