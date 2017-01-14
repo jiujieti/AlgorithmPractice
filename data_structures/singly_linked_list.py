@@ -8,7 +8,9 @@ class SinglyLinkedListError(Exception):
 
 class SinglyLinkedList:
   def __init__(self, li):
-    if li:
+    if not li:
+      self.head = None
+    else:
       self.head = Node(li[0])
       p = self.head
       for ele in li[1:]:
@@ -16,8 +18,7 @@ class SinglyLinkedList:
         p.succ = q
         p = q
       p.succ = None
-    else:
-      self.head = None
+    return self.head
 
   def insert_ele(self, val):
     """Insert a element, assuming that this is a sorted singly linked list."""
