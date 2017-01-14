@@ -53,6 +53,15 @@ class SinglyLinkedList:
       q = p 
       p = p.succ 
     return self.head
+ 
+  def reverse_list(self):
+    p = self.head
+    q = None
+    while p is not None:
+      q = Node(p.value, q)    
+      p = p.succ      
+    self.head = q
+    return self.head
 
   def return_list(self):
     p = self.head
@@ -61,3 +70,4 @@ class SinglyLinkedList:
       li.append(p.value)
       p = p.succ
     return li
+
