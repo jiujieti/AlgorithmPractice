@@ -1,7 +1,7 @@
 class Node:
   
-  def __init__(self, val, prev=None, succ=None):
-    self.value = val
+  def __init__(self, value, prev=None, succ=None):
+    self.value = value
     self.prev = prev
     self.succ = succ
 
@@ -21,24 +21,20 @@ class DoublyLinkedList:
       p.succ = q
       p = q
     self.tail = p
-    self.head.prev, self.tail.succ = None, None 
         
-  def insert_ele(self, val):  
+  def insert_ele(self, val):
     q = Node(val)
     if self.head is None:
-      q.prev = None
-      q.succ = None
-      self.head, self.tail = q, q
+      self.head = self.tail = q
     elif self.head.value >= val:
-      q.prev = self.head.prev
+      self.head.prev = q
       q.succ = self.head
       self.head = q
     else:
       p = self.head
-      while p is not self.tail.succ and p.value < val:
+      while p is not None and p.value < val:
         p = p.succ 
-      if p is self.tail.succ:
-        q.succ = self.tail.succ
+      if p is None:
         q.prev = self.tail 
         self.tail.succ = q
         self.tail = q
@@ -47,16 +43,13 @@ class DoublyLinkedList:
         p.prev.succ = q
         q.succ = p
         p.prev = q
-    return self.head, self.tail
 
   def delete_ele(self, val):
-    if self.head is None:
-      raise DoublyLinkedListError("An empty list is here! No nodes could be deleted.")
     while self.head is not None and self.head.value == val:
       self.head = self.head.succ
     if self.head is None:
       self.tail = None
-      return self.head, self.tail
+      return
     p = self.head
     q = p.succ
     while q is not None:
@@ -71,7 +64,6 @@ class DoublyLinkedList:
         q.prev = p
         p = q
         q = q.succ
-    return self.head, self.tail
 
   def reverse_list(self):
     p = self.head
@@ -92,4 +84,3 @@ class DoublyLinkedList:
       li.append(p.value)
       p = p.succ
     return li
-
