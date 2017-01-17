@@ -3,9 +3,6 @@ class Node:
     self.value = val
     self.succ = succ
 
-class SinglyLinkedListError(Exception):
-  pass
-
 class SinglyLinkedList:
   
   def __init__(self, li):
@@ -28,7 +25,7 @@ class SinglyLinkedList:
     if self.head == None or val < self.head.value:
       q.succ = self.head
       self.head = q
-      return self.head
+      return
 
     # Walk through the list until the next value is None or the next value is larger or equal to the one to be inserted
     p = self.head
@@ -36,15 +33,12 @@ class SinglyLinkedList:
       p = p.succ
     q.succ = p.succ
     p.succ = q
-    return self.head
 
   def delete_ele(self, val):
-    if not self.head:
-      raise SinglyLinkedListError("Empty List! No elements found.")   
     while self.head is not None and self.head.value == val:
       self.head = self.head.succ
     if self.head is None:
-      return self.head
+      return
     p = self.head
     q = p.succ
     while q is not None:
@@ -54,7 +48,6 @@ class SinglyLinkedList:
       p = q
       if q is not None: 
         q = q.succ 
-    return self.head
  
   def reverse_list(self):
     p = self.head
@@ -63,7 +56,6 @@ class SinglyLinkedList:
       q = Node(p.value, q)    
       p = p.succ      
     self.head = q
-    return self.head
 
   def return_list(self):
     p = self.head

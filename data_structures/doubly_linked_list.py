@@ -5,9 +5,6 @@ class Node:
     self.prev = prev
     self.succ = succ
 
-class DoublyLinkedListError(Exception):
-  pass
-
 class DoublyLinkedList:
   
   def __init__(self, li):
@@ -67,15 +64,14 @@ class DoublyLinkedList:
 
   def reverse_list(self):
     p = self.head
-    self.tail = p
     q = None
+    self.tail = Node(p.value, p.succ, None)
     while p is not None:
       q = Node(p.value, p.succ, q) 
       p = p.succ
       if p is None:
         self.head = q
         break
-    return self.head, self.tail 
 
   def return_list(self):
     li = []
