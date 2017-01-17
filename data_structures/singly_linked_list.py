@@ -7,6 +7,7 @@ class SinglyLinkedListError(Exception):
   pass
 
 class SinglyLinkedList:
+  
   def __init__(self, li):
     if not li:
       self.head = None
@@ -18,7 +19,6 @@ class SinglyLinkedList:
         p.succ = q
         p = q
       p.succ = None
-    return self.head
 
   def insert_ele(self, val):
     """Insert a element, assuming that this is a sorted singly linked list."""
@@ -39,20 +39,21 @@ class SinglyLinkedList:
     return self.head
 
   def delete_ele(self, val):
-    p = self.head
-    if not p:
+    if not self.head:
       raise SinglyLinkedListError("Empty List! No elements found.")   
-    while p.value == val:
-      p = p.succ
-    self.head = p
-    q = p
-    p = p.succ
-    while p is not None:
-      while p is not None and p.value == val:
-        p = p.succ
-      q.succ = p
-      q = p 
-      p = p.succ 
+    while self.head is not None and self.head.value == val:
+      self.head = self.head.succ
+    if self.head is None:
+      return self.head
+    p = self.head
+    q = p.succ
+    while q is not None:
+      while q is not None and q.value == val:
+        q = q.succ
+      p.succ = q
+      p = q
+      if q is not None: 
+        q = q.succ 
     return self.head
  
   def reverse_list(self):
