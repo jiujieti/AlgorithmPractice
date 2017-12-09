@@ -5,24 +5,24 @@
 2. Divide and conquer approach: O(n\*lg(n))
 3. Linear-time approach: O(n)
 
-##Sort
-###Heapsort
+## Sort
+### Heapsort
 1. Worst case: O(n\*lg(n))
 2. Average case: O(n\*lg(n))
 3. Best case: O(n\*lg(n))
 
-###Quicksort
+### Quicksort
 1. Worst case: O(n^2)
 2. Average case: O(n\*lg(n))
 3. Best case: O(n\*lg(n))
 
-##Data Structures
-###Stack
+## Data Structures
+### Stack
 1. isEmpty
 2. pop
 3. push
 
-###Queue
+### Queue
 1. isEmpty
 2. enqueue
 3. dequeue
